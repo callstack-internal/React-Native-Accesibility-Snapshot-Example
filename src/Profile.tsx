@@ -7,36 +7,55 @@ const tomProfilePicture =
 export default function Profile() {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.profilePictureTouchable}>
+      <TouchableOpacity
+        aria-label="Profile picture"
+        accessibilityHint="Double tap to edit"
+        style={styles.profilePictureTouchable}>
         <Image src={tomProfilePicture} style={styles.profilePicture} />
         <View style={styles.profilePictureEdit}>
-          <Text style={styles.profilePictureEditText}>Edit</Text>
+          <Text
+            style={styles.profilePictureEditText}
+            maxFontSizeMultiplier={1.25}>
+            Edit
+          </Text>
         </View>
       </TouchableOpacity>
       <Text style={styles.text}>Tom</Text>
 
       <View style={styles.stats}>
-        <View style={styles.stat}>
-          <Text style={styles.statNumber}>15</Text>
-          <Text>Games</Text>
+        <View style={styles.stat} accessible aria-label="Games: 15">
+          <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
+            15
+          </Text>
+          <Text maxFontSizeMultiplier={2.7}>Games</Text>
         </View>
 
-        <View style={styles.stat}>
-          <Text style={styles.statNumber}>9</Text>
-          <Text>Wins</Text>
+        <View style={styles.stat} accessible aria-label="Wins: 9">
+          <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
+            9
+          </Text>
+          <Text maxFontSizeMultiplier={2.7}>Wins</Text>
         </View>
 
-        <View style={styles.stat}>
-          <Text style={styles.statNumber}>343</Text>
-          <Text>Points</Text>
+        <View style={styles.stat} accessible aria-label="Points: 343">
+          <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
+            343
+          </Text>
+          <Text maxFontSizeMultiplier={2.7}>Points</Text>
         </View>
       </View>
 
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          accessibilityRole="button"
+          role="button">
           <Text style={styles.buttonText}>Change Name</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.buttonDeleteProfile]}>
+        <TouchableOpacity
+          style={[styles.button, styles.buttonDeleteProfile]}
+          accessibilityRole="button"
+          role="button">
           <Text style={styles.buttonText}>Delete Profile</Text>
         </TouchableOpacity>
       </View>
