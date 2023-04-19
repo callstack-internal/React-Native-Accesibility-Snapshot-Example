@@ -3,6 +3,8 @@ import {AppRegistry, NativeModules} from 'react-native';
 export default function registerAccessibilitySnapshotNode(
   name: string,
   node: JSX.Element,
+  width = 300,
+  height = 700,
 ) {
   AppRegistry.registerComponent(name, () => () => node);
   const {SnapshotTests} = NativeModules;
@@ -10,7 +12,7 @@ export default function registerAccessibilitySnapshotNode(
     return;
   }
 
-  const result = SnapshotTests.registerName(name);
+  const result = SnapshotTests.registerName(name, width, height);
   if (!result) {
     throw new Error(`Couldn't register ${name}`);
   }
