@@ -1,0 +1,9 @@
+/android/** linguist-vendored
+/ios/AccessibilitySnapshotExample/** linguist-vendored
+/ios/Podfile linguist-vendored
+/.eslintrc.js linguist-vendored
+/.prettierrc.js linguist-vendored
+/babel.config.js linguist-vendored
+/index.js linguist-vendored
+/metro.config.js linguist-vendored
+/Gemfile linguist-vendored
