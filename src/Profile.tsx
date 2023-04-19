@@ -1,17 +1,28 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  AppRegistry,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const tomProfilePicture =
   'https://images.unsplash.com/photo-1569591159212-b02ea8a9f239?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60';
 
-export default function Profile() {
+export default function Profile({
+  picture = tomProfilePicture,
+}: {
+  picture: string;
+}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
         aria-label="Profile picture"
         accessibilityHint="Double tap to edit"
         style={styles.profilePictureTouchable}>
-        <Image src={tomProfilePicture} style={styles.profilePicture} />
+        <Image src={picture} style={styles.profilePicture} />
         <View style={styles.profilePictureEdit}>
           <Text
             style={styles.profilePictureEditText}
@@ -135,3 +146,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
+
+if (__DEV__) {
+  AppRegistry.registerComponent('ProfileTest', () => () => (
+    <Profile picture="" />
+  ));
+}
