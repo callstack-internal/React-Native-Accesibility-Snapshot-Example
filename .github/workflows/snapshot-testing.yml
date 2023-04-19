@@ -1,0 +1,82 @@
+name: Snapshot Testing
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    name: Test snapshots
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node.js and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: CocoaPods cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ios/Pods
+            ~/Library/Caches/CocoaPods
+            ~/.cocoapods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Configure CocoaPods
+        run: cd ios && pod install && cd ..
+
+      - name: DerivedData cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ios/DerivedData
+          key: ${{ runner.os }}-deriveddata-${{ hashFiles('ios/Podfile.lock', 'yarn.lock', 'ios/AccessibilitySnapshotExample.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-deriveddata-
+
+      - name: xcodebuild test
+        id: xcodeTest
+        run: |
+          echo "export FORCE_BUNDLING=1" > ios/.xcode.env.local
+          xcodebuild -workspace ios/AccessibilitySnapshotExample.xcworkspace -scheme AccessibilitySnapshotExample -destination 'platform=iOS Simulator,name=iPhone 14' -derivedDataPath ios/DerivedData/ USE_LOCAL_BUNDLE=1 test
+        continue-on-error: true
+
+      - uses: actions/upload-artifact@v3
+        if: steps.xcodeTest.outcome != 'success'
+        with:
+          name: snapshots
+          path: /tmp/iOS-Snapshots
+
+      - uses: actions/github-script@v6
+        if: steps.xcodeTest.outcome != 'success'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Xcode failed when running tests.
+              
+            Check the [workflow logs and artifacts](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).`,
+            })
+
+      - name: Fail after upload artifacts
+        if: steps.xcodeTest.outcome != 'success'
+        run: |
+          echo "Xcode failed when running tests. Check the workflow logs and artifacts."
+          exit 1
