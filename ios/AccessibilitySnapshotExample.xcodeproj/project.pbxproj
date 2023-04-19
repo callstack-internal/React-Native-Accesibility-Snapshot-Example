@@ -741,8 +741,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cashapp/AccessibilitySnapshot.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.0;
+				branch = "entin/perceptual-precision";
+				kind = branch;
 			};
 		};
 		43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {

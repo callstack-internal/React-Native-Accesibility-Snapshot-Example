@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cashapp/AccessibilitySnapshot.git",
       "state" : {
-        "revision" : "482db2fd4251cce237d8106073a53ad5289ce739",
-        "version" : "0.6.0"
+        "branch" : "entin/perceptual-precision",
+        "revision" : "98afd109ea136c94a5c930897e5505be3ea8541d"
       }
     },
     {

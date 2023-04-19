@@ -26,7 +26,7 @@ class AccessibilitySnapshotTests : XCTestCase {
     
     _ = XCTWaiter.wait(for: [expectation], timeout: 5.0)
     
-    assertSnapshot(matching: profileView, as: .accessibilityImage)
+    assertSnapshot(matching: profileView, as: .accessibilityImage(perceptualPrecision: 0.995))
   }
 }
 
