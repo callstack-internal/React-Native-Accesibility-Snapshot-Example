@@ -25,9 +25,9 @@ class AccessibilitySnapshotTests : XCTestCase {
     for item in items {
       let expectation = expectation(description: "Wait for content to appear")
       let observer = Observer(expectation)
-      let profileView = RCTRootView(frame: .init(x: 0, y: 0, width: 300, height: 700),
+      let profileView = RCTRootView(frame: .init(x: 0, y: 0, width: item.width, height: item.height),
                                     bridge: bridge,
-                                    moduleName: item,
+                                    moduleName: item.name,
                                     initialProperties: nil)
       NotificationCenter.default.addObserver(observer,
                                              selector: #selector(observer.handler),
@@ -37,7 +37,10 @@ class AccessibilitySnapshotTests : XCTestCase {
       
       _ = XCTWaiter.wait(for: [expectation], timeout: 5.0)
       
-      assertSnapshot(matching: profileView, as: .accessibilityImage(perceptualPrecision: 0.995), named: item, testName: "accessibility")
+      assertSnapshot(matching: profileView,
+                     as: .accessibilityImage(perceptualPrecision: 0.995),
+                     named: item.name,
+                     testName: "accessibility")
     }
   }
   

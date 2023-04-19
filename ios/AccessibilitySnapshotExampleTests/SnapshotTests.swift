@@ -8,15 +8,15 @@ class SnapshotTests: NSObject, RCTBridgeModule {
     "SnapshotTests"
   }
   
-  var items: [String]? = []
+  var items: [Configuration]? = []
   
-  @objc(registerName:)
-  func register(name: String) -> NSNumber? {
+  @objc(registerName:width:height:)
+  func register(name: String, width: NSNumber, height: NSNumber) -> NSNumber? {
     guard let items = items else {
       return nil
     }
     
-    if items.contains(name) {
+    if items.contains(where: { $0.name == name }) {
       self.items = nil
       NSException.raise(.init(rawValue: "Name already registered"),
                         format: "%@ already registered",
@@ -24,7 +24,13 @@ class SnapshotTests: NSObject, RCTBridgeModule {
       print("\(name) already registered")
     }
     
-    self.items!.append(name)
+    self.items!.append(.init(name: name, width: width.intValue, height: height.intValue))
     return NSNumber(booleanLiteral: true)
+  }
+  
+  struct Configuration {
+    let name: String
+    let width: Int
+    let height: Int
   }
 }

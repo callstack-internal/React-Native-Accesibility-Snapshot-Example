@@ -163,7 +163,14 @@ if (__DEV__) {
   registerAccessibilitySnapshotNode(
     'ProfilePictureTest',
     <ProfilePicture picture="" />,
+    200,
+    200,
   );
-  registerAccessibilitySnapshotNode('ProfileStatsTest', <Stats />);
-  registerAccessibilitySnapshotNode('ProfileButtonsTest', <Buttons />);
+  registerAccessibilitySnapshotNode('ProfileStatsTest', <Stats />, 600, 200);
+  registerAccessibilitySnapshotNode(
+    'ProfileButtonsTest',
+    <Buttons />,
+    300,
+    200,
+  );
 }
