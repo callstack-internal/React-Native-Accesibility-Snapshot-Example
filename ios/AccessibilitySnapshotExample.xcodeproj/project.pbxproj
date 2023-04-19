@@ -13,9 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		4371710C29EFFF54006B6B15 /* AccessibilitySnapshot in Frameworks */ = {isa = PBXBuildFile; productRef = 4371710B29EFFF54006B6B15 /* AccessibilitySnapshot */; };
 		4371710E29EFFF88006B6B15 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4371710D29EFFF88006B6B15 /* SnapshotTesting */; };
-		43772BE229ED3CF60000A557 /* AccessibilitySnapshot in Frameworks */ = {isa = PBXBuildFile; productRef = 43772BE129ED3CF60000A557 /* AccessibilitySnapshot */; };
 		43EE060829EFF89500D2757D /* AccessibilitySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE060729EFF89500D2757D /* AccessibilitySnapshotTests.swift */; };
-		43EE060D29EFFE8900D2757D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 43EE060C29EFFE8900D2757D /* SnapshotTesting */; };
 		7699B88040F8A987B510C191 /* libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -65,9 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43EE060D29EFFE8900D2757D /* SnapshotTesting in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-AccessibilitySnapshotExample.a in Frameworks */,
-				43772BE229ED3CF60000A557 /* AccessibilitySnapshot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,8 +201,6 @@
 			);
 			name = AccessibilitySnapshotExample;
 			packageProductDependencies = (
-				43772BE129ED3CF60000A557 /* AccessibilitySnapshot */,
-				43EE060C29EFFE8900D2757D /* SnapshotTesting */,
 			);
 			productName = AccessibilitySnapshotExample;
 			productReference = 13B07F961A680F5B00A75B9A /* AccessibilitySnapshotExample.app */;
@@ -766,20 +760,10 @@
 			package = 43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
 		};
-		43772BE129ED3CF60000A557 /* AccessibilitySnapshot */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43772BE029ED3CF60000A557 /* XCRemoteSwiftPackageReference "AccessibilitySnapshot" */;
-			productName = AccessibilitySnapshot;
-		};
 		43EE060929EFFDEB00D2757D /* AccessibilitySnapshot */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 43772BE029ED3CF60000A557 /* XCRemoteSwiftPackageReference "AccessibilitySnapshot" */;
 			productName = AccessibilitySnapshot;
-		};
-		43EE060C29EFFE8900D2757D /* SnapshotTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
-			productName = SnapshotTesting;
 		};
 		43EE060E29EFFE9200D2757D /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
