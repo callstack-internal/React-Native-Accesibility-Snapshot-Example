@@ -4,7 +4,10 @@ import SnapshotTesting
 import XCTest
 
 class AccessibilitySnapshotTests : XCTestCase {
-  let bridge = RCTBridge(bundleURL: URL(string: "http://localhost:8081/index.bundle?platform=ios")!, moduleProvider: nil)!
+  let bridge = RCTBridge(bundleURL: ProcessInfo.processInfo.environment["USE_LOCAL_BUNDLE"] == nil
+                         ? RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+                         : Bundle.main.url(forResource: "main", withExtension: "jsbundle")!,
+                         moduleProvider: nil)!
   
   func testAccessibilitySnapshot() {
     let expectation = expectation(description: "Wait for content to appear")
