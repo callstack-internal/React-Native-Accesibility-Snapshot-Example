@@ -42,6 +42,11 @@
             value = "$(USE_LOCAL_BUNDLE)"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "SNAPSHOT_ARTIFACTS"
+            value = "/tmp/iOS-Snapshots"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
       <Testables>
          <TestableReference
