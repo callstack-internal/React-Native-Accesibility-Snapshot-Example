@@ -13,6 +13,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		4371710C29EFFF54006B6B15 /* AccessibilitySnapshot in Frameworks */ = {isa = PBXBuildFile; productRef = 4371710B29EFFF54006B6B15 /* AccessibilitySnapshot */; };
 		4371710E29EFFF88006B6B15 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4371710D29EFFF88006B6B15 /* SnapshotTesting */; };
+		4371711529F03706006B6B15 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371711429F03706006B6B15 /* SnapshotTests.swift */; };
+		4371711829F03E2E006B6B15 /* SnapshotTestsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4371711729F03E2E006B6B15 /* SnapshotTestsBridge.m */; };
 		43EE060829EFF89500D2757D /* AccessibilitySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE060729EFF89500D2757D /* AccessibilitySnapshotTests.swift */; };
 		7699B88040F8A987B510C191 /* libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -39,6 +41,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AccessibilitySnapshotExample/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-AccessibilitySnapshotExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessibilitySnapshotExample.debug.xcconfig"; path = "Target Support Files/Pods-AccessibilitySnapshotExample/Pods-AccessibilitySnapshotExample.debug.xcconfig"; sourceTree = "<group>"; };
+		4371711429F03706006B6B15 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
+		4371711729F03E2E006B6B15 /* SnapshotTestsBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapshotTestsBridge.m; sourceTree = "<group>"; };
 		43EE060729EFF89500D2757D /* AccessibilitySnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySnapshotTests.swift; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AccessibilitySnapshotExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessibilitySnapshotExample.release.xcconfig"; path = "Target Support Files/Pods-AccessibilitySnapshotExample/Pods-AccessibilitySnapshotExample.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests/Pods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				43EE060729EFF89500D2757D /* AccessibilitySnapshotTests.swift */,
+				4371711429F03706006B6B15 /* SnapshotTests.swift */,
+				4371711729F03E2E006B6B15 /* SnapshotTestsBridge.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
 			path = AccessibilitySnapshotExampleTests;
@@ -216,7 +222,7 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						LastSwiftMigration = 1420;
+						LastSwiftMigration = 1430;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -422,6 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EE060829EFF89500D2757D /* AccessibilitySnapshotTests.swift in Sources */,
+				4371711829F03E2E006B6B15 /* SnapshotTestsBridge.m in Sources */,
+				4371711529F03706006B6B15 /* SnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

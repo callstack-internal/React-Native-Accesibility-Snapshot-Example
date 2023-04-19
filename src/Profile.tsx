@@ -1,23 +1,24 @@
 import React from 'react';
-import {
-  AppRegistry,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import registerAccessibilitySnapshotNode from './utils/registerAccessibilitySnapshotNode';
 
 const tomProfilePicture =
   'https://images.unsplash.com/photo-1569591159212-b02ea8a9f239?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60';
 
-export default function Profile({
-  picture = tomProfilePicture,
-}: {
-  picture: string;
-}) {
+export default function Profile({picture}: {picture?: string}) {
   return (
     <View style={styles.container}>
+      <ProfilePicture picture={picture} />
+      <Text style={styles.text}>Tom</Text>
+      <Stats />
+      <Buttons />
+    </View>
+  );
+}
+
+function ProfilePicture({picture = tomProfilePicture}: {picture?: string}) {
+  return (
+    <>
       <TouchableOpacity
         aria-label="Profile picture"
         accessibilityHint="Double tap to edit"
@@ -31,8 +32,13 @@ export default function Profile({
           </Text>
         </View>
       </TouchableOpacity>
-      <Text style={styles.text}>Tom</Text>
+    </>
+  );
+}
 
+function Stats() {
+  return (
+    <>
       <View style={styles.stats}>
         <View style={styles.stat} accessible aria-label="Games: 15">
           <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
@@ -55,7 +61,13 @@ export default function Profile({
           <Text maxFontSizeMultiplier={2.7}>Points</Text>
         </View>
       </View>
+    </>
+  );
+}
 
+function Buttons() {
+  return (
+    <>
       <View style={styles.buttons}>
         <TouchableOpacity
           style={styles.button}
@@ -70,10 +82,9 @@ export default function Profile({
           <Text style={styles.buttonText}>Delete Profile</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -148,7 +159,11 @@ const styles = StyleSheet.create({
 });
 
 if (__DEV__) {
-  AppRegistry.registerComponent('ProfileTest', () => () => (
-    <Profile picture="" />
-  ));
+  registerAccessibilitySnapshotNode('ProfileTest', <Profile picture="" />);
+  registerAccessibilitySnapshotNode(
+    'ProfilePictureTest',
+    <ProfilePicture picture="" />,
+  );
+  registerAccessibilitySnapshotNode('ProfileStatsTest', <Stats />);
+  registerAccessibilitySnapshotNode('ProfileButtonsTest', <Buttons />);
 }
