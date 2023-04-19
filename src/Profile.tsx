@@ -18,10 +18,7 @@ export default function Profile({
 }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        aria-label="Profile picture"
-        accessibilityHint="Double tap to edit"
-        style={styles.profilePictureTouchable}>
+      <TouchableOpacity style={styles.profilePictureTouchable}>
         <Image src={picture} style={styles.profilePicture} />
         <View style={styles.profilePictureEdit}>
           <Text
@@ -34,21 +31,21 @@ export default function Profile({
       <Text style={styles.text}>Tom</Text>
 
       <View style={styles.stats}>
-        <View style={styles.stat} accessible aria-label="Games: 15">
+        <View style={styles.stat}>
           <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
             15
           </Text>
           <Text maxFontSizeMultiplier={2.7}>Games</Text>
         </View>
 
-        <View style={styles.stat} accessible aria-label="Wins: 9">
+        <View style={styles.stat}>
           <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
             9
           </Text>
           <Text maxFontSizeMultiplier={2.7}>Wins</Text>
         </View>
 
-        <View style={styles.stat} accessible aria-label="Points: 343">
+        <View style={styles.stat}>
           <Text style={styles.statNumber} maxFontSizeMultiplier={3}>
             343
           </Text>
@@ -57,16 +54,10 @@ export default function Profile({
       </View>
 
       <View style={styles.buttons}>
-        <TouchableOpacity
-          style={styles.button}
-          accessibilityRole="button"
-          role="button">
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Change Name</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonDeleteProfile]}
-          accessibilityRole="button"
-          role="button">
+        <TouchableOpacity style={[styles.button, styles.buttonDeleteProfile]}>
           <Text style={styles.buttonText}>Delete Profile</Text>
         </TouchableOpacity>
       </View>
