@@ -12,7 +12,6 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		4371710C29EFFF54006B6B15 /* AccessibilitySnapshot in Frameworks */ = {isa = PBXBuildFile; productRef = 4371710B29EFFF54006B6B15 /* AccessibilitySnapshot */; };
-		4371710E29EFFF88006B6B15 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4371710D29EFFF88006B6B15 /* SnapshotTesting */; };
 		4371711529F03706006B6B15 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371711429F03706006B6B15 /* SnapshotTests.swift */; };
 		4371711829F03E2E006B6B15 /* SnapshotTestsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4371711729F03E2E006B6B15 /* SnapshotTestsBridge.m */; };
 		43EE060829EFF89500D2757D /* AccessibilitySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE060729EFF89500D2757D /* AccessibilitySnapshotTests.swift */; };
@@ -57,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4371710E29EFFF88006B6B15 /* SnapshotTesting in Frameworks */,
 				7699B88040F8A987B510C191 /* libPods-AccessibilitySnapshotExample-AccessibilitySnapshotExampleTests.a in Frameworks */,
 				4371710C29EFFF54006B6B15 /* AccessibilitySnapshot in Frameworks */,
 			);
@@ -175,14 +173,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				43EE060F29EFFE9200D2757D /* PBXTargetDependency */,
-				43EE060A29EFFDEB00D2757D /* PBXTargetDependency */,
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
 			name = AccessibilitySnapshotExampleTests;
 			packageProductDependencies = (
 				4371710B29EFFF54006B6B15 /* AccessibilitySnapshot */,
-				4371710D29EFFF88006B6B15 /* SnapshotTesting */,
 			);
 			productName = AccessibilitySnapshotExampleTests;
 			productReference = 00E356EE1AD99517003FC87E /* AccessibilitySnapshotExampleTests.xctest */;
@@ -241,7 +236,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
 				43772BE029ED3CF60000A557 /* XCRemoteSwiftPackageReference "AccessibilitySnapshot" */,
-				43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -449,14 +443,6 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* AccessibilitySnapshotExample */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-		43EE060A29EFFDEB00D2757D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 43EE060929EFFDEB00D2757D /* AccessibilitySnapshot */;
-		};
-		43EE060F29EFFE9200D2757D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 43EE060E29EFFE9200D2757D /* SnapshotTesting */;
 		};
 /* End PBXTargetDependency section */
 
@@ -747,14 +733,6 @@
 				kind = branch;
 			};
 		};
-		43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -762,21 +740,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 43772BE029ED3CF60000A557 /* XCRemoteSwiftPackageReference "AccessibilitySnapshot" */;
 			productName = AccessibilitySnapshot;
-		};
-		4371710D29EFFF88006B6B15 /* SnapshotTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
-			productName = SnapshotTesting;
-		};
-		43EE060929EFFDEB00D2757D /* AccessibilitySnapshot */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43772BE029ED3CF60000A557 /* XCRemoteSwiftPackageReference "AccessibilitySnapshot" */;
-			productName = AccessibilitySnapshot;
-		};
-		43EE060E29EFFE9200D2757D /* SnapshotTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43EE060B29EFFE8900D2757D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
-			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
