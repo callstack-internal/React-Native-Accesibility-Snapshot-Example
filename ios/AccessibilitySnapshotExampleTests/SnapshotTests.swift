@@ -10,7 +10,7 @@ class SnapshotTests: NSObject, RCTBridgeModule {
   
   var items: [Configuration]? = []
   
-  @objc(registerName:width:height:)
+  @objc(register:width:height:)
   func register(name: String, width: NSNumber, height: NSNumber) -> NSNumber? {
     guard let items = items else {
       return nil
