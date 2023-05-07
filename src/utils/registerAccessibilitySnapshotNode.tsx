@@ -12,7 +12,7 @@ export default function registerAccessibilitySnapshotNode(
     return;
   }
 
-  const result = SnapshotTests.registerName(name, width, height);
+  const result = SnapshotTests.register(name, width, height);
   if (!result) {
     throw new Error(`Couldn't register ${name}`);
   }
